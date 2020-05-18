@@ -20,17 +20,14 @@ def view(template); erb template.to_sym; end
 
   @day_number = 1
 
-    #puts "Extended forecast:"
-      #  for day in @forecast["daily"]    
-      #  puts "In the next #{day_number} days, temperature will be #{day["temp"]["day"]} celsius with maximum of #{day["temp"]["max"]}, minimum of #{day["temp"]["min"]} and there will be #{day["weather"][0]["description"]}"
-       # day_number = day_number + 1
-        # end
-    view "news"
+
+
 
   ### Get the news API Key: f73238e5d6334ca982f17a6ae2c74d08
 
     #url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=f73238e5d6334ca982f17a6ae2c74d08"
     #@news = HTTParty.get(url).parsed_response.to_hash.inspect
 # news is now a Hash you can pretty print (pp) and parse for your output
+  view "news"
 
  end
