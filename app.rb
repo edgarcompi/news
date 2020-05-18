@@ -24,6 +24,8 @@ def view(template); erb template.to_sym; end
 
 
   ### Get the news API Key: f73238e5d6334ca982f17a6ae2c74d08
+  # news is now a Hash you can pretty print (pp) and parse for your output
+
 
 url2 = "https://newsapi.org/v2/top-headlines?country=us&apiKey=f73238e5d6334ca982f17a6ae2c74d08"
 
@@ -31,8 +33,6 @@ url2 = "https://newsapi.org/v2/top-headlines?country=us&apiKey=f73238e5d6334ca98
 
 @topnews = @news["articles"][0, 6]
 
-
-# news is now a Hash you can pretty print (pp) and parse for your output
   
 view "news"
 
