@@ -23,9 +23,25 @@
   <body>
 
     <div class="container mt-5">
+        <h1>Weather</h1>
+        <p>It is currently <%= @forecast["current"]["temp"] %> degrees and there is <%= @forecast["current"]["weather"][0]["description"] %></p>
+        <h3>Extended forecast </h3>
+        <% for day in @forecast["daily"] %>
+            <p>In the next <%= @day_number %> days, temperature will be <%= day["temp"]["day"] %> celsius with maximum of <%= day["temp"]["max"] %>, minimum of <%= day["temp"]["min"] %> and there will be <%= day["weather"][0]["description"] %>
+            <% @day_number = @day_number + 1 %>
+        <% end %>
+    </div>
+
+    <div class="container mt-5">
       <h1>News</h1>
     </div>
 
+    <!-- 
+       for day in @forecast["daily"]    
+       puts "In the next #{day_number} days, temperature will be #{day["temp"]["day"]} celsius with maximum of #{day["temp"]["max"]}, minimum of #{day["temp"]["min"]} and there will be #{day["weather"][0]["description"]}"
+        day_number = day_number + 1
+         end
+        -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
