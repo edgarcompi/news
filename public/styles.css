@@ -1,5 +1,26 @@
 
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+}
 
 img {
-    
+    height: 6em
+}
+
+
+.title{
+    text-align: center;
+
+}
+
+.title h1{
+    font-size: 60px
+}
+
+.verticalpad4{
+    height: 4em
+}
+
+.verticalpad2{
+    height: 2em
 }

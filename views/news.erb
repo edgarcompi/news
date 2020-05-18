@@ -6,9 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Google Fonts -->
-    <!-- Swap out "Roboto" for the font(s) you want to use -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css" crossorigin="anonymous">
 
@@ -22,25 +21,43 @@
   </head>
   <body>
 
-    <div class="container mt-5">
-        <h1>Weather Forecast</h1>
-        <p>It is currently <%= @forecast["current"]["temp"] %> degrees and there is <%= @forecast["current"]["weather"][0]["description"] %></p>
-        <h3>Extended forecast </h3>
-        <% for day in @forecast["daily"] %>
-            <p>In the next <%= @day_number %> days, temperature will be <%= day["temp"]["day"] %> celsius with maximum of <%= day["temp"]["max"] %>, minimum of <%= day["temp"]["min"] %> and there will be <%= day["weather"][0]["description"] %>
-            <% @day_number = @day_number + 1 %>
-        <% end %>
+    <div class="container title">
+        <div class="verticalpad4"></div>
+        <h1> What's going on? </h1>
+        <div class="verticalpad4"></div>
+        <hr class="my-3">
     </div>
 
-    <div class="container mt-5">
-      <h1>Latest News</h1>
-      <% for article in @topnews %>
-            <h5> <%= article["title"] %> </h5>
-            <img src=<%= article["urlToImage"] %> >
-            <p> <%= article["description"] %> <a href=<%= article["url"] %> > see source </a> </p>
-    <% end %>
-    </div>
 
+    <div class="container">
+        <div class="row">
+        
+            <div class="col-7">
+            <h1>Latest News</h1>
+            <div class="verticalpad2"></div>
+            <% for article in @topnews %>
+                    <h5> <b> <%= article["title"] %> </b></h5>
+                    <img src=<%= article["urlToImage"] %> >
+                    <p> <%= article["description"] %> <a href=<%= article["url"] %> > see source </a> </p>
+            <% end %>
+            </div>
+        
+            <div class="col-1">
+            </div>
+
+            <div class="col-4">
+                <h1>Weather Forecast</h1>
+                <div class="verticalpad2"></div>
+                <p><b>It is currently <%= @forecast["current"]["temp"] %> degrees and there is <%= @forecast["current"]["weather"][0]["description"] %></b></p>
+                <h3>Extended forecast </h3>
+                <% for day in @forecast["daily"] %>
+                    <p>In the next <%= @day_number %> days, temperature will be <%= day["temp"]["day"] %> celsius with maximum of <%= day["temp"]["max"] %>, minimum of <%= day["temp"]["min"] %> and there will be <%= day["weather"][0]["description"] %>
+                    <% @day_number = @day_number + 1 %>
+                <% end %>
+            </div>
+
+        </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
